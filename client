@@ -1,0 +1,56 @@
+#!/usr/bin/python3
+
+import socket		 	                      
+import sys
+
+
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+from_user   = sys.argv[1]
+split       = from_user.split(':')
+host        = str(split[0])                           
+port        = int(split[1])
+
+
+s.connect((host, port))                           
+                           
+print("Connected to :",from_user)
+initial_msg = s.recv(1024).decode()
+print("\n", initial_msg)
+s.send("OK\n".encode())
+
+while(True):
+	U=s.recv(1024).decode()
+	print(U)
+	X=U.split()
+	if len(X) > 1:
+		if X[0] == "add":
+			m = int(X[1])+int(X[2])
+			m1=str(m)+"\n"
+			s.send(m1.encode())
+			print("result is ",str(m) )
+           
+		elif X[0] == "sub":
+			n = int(X[1])-int(X[2])
+			b1=str(n)+"\n"
+			s.send(b1.encode())
+			print("result is ", str(n))
+          
+		elif X[0] == "mul":
+			d = int(X[1])*int(X[2])
+			m1=str(d)+"\n"
+			s.send(m1.encode())
+			print("result is ", str(d))
+          
+		elif X[0] == "div":
+			o = int(X[1])/int(X[2])
+			m1=str(o)+"\n"
+			s.send(m1.encode())   
+			print('result is %8.8g' %o)
+      
+    response = s.recv(1024).decode()
+		print (response)
+break
+
+        
+s.close
