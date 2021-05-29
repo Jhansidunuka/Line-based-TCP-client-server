@@ -2,7 +2,7 @@
 
 import socket		 	            
 import sys
-
+import random
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -11,7 +11,7 @@ split      = from_user.split(':')
 host       = str(split[0])                     
 port       = int(split[1])
 
-s.bind((host, port)) 			    
+s.bind((host, port)) 
 
 
 print("Server is active")
