@@ -37,16 +37,40 @@ while(True):
 			print("result is ", str(n))
           
 		elif X[0] == "mul":
-			d = int(X[1])*int(X[2])
-			m1=str(d)+"\n"
+			p = int(X[1])*int(X[2])
+			m1=str(p)+"\n"
 			s.send(m1.encode())
-			print("result is ", str(d))
+			print("result is ", str(p))
           
 		elif X[0] == "div":
 			o = int(X[1])/int(X[2])
 			m1=str(o)+"\n"
 			s.send(m1.encode())   
 			print('result is %8.8g' %o)
+			
+		elif X[0] == "fadd":
+			fm = float(X[1])+float(X[2])
+			m1=str(fm)+"\n"
+			s.send(m1.encode())
+			print('result is %8.8g' %fm)
+          
+		elif X[0] == "fsub":
+			fn = float(X[1])-float(X[2])
+			m1=str(fn)+"\n"
+			s.send(m1.encode())
+			print('result is %8.8g'%fn)
+            
+		elif X[0] == "fmul":
+			fp = float(X[1])*float(X[2])
+			m1=str(fp)+"\n"
+			s.send(m1.encode())
+			print('result is %8.8g' %fp)
+            
+		elif X[0] == "fdiv":
+			fo = float(X[1])/float(X[2])
+			m1=str(fo)+"\n"
+			s.send(m1.encode())
+			print('result is %8.8g' %fo)
       
     response = s.recv(1024).decode()
 		print (response)
