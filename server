@@ -16,7 +16,7 @@ s.listen(1)
 
 print("Server is active")
 
-T = ["add", "sub", "mul", "div"]
+T = ["add", "sub", "mul", "div", "fadd", "fsub", "fdiv", "fmul"]
 
 while True:
 	c, addr = s.accept() 		    
