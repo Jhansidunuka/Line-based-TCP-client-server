@@ -80,7 +80,73 @@ while True:
 			print ('result is %8.8g' %division)
 			if division == float(answer):
 				c.send("OK\n".encode())
+		elif Y == "div":
+			VALUE1 = random.randint(1,100)
+			VALUE2 = random.randint(1,150)
+			M = Y + " " + str(VALUE1) + " " + str(VALUE2)
+			division = VALUE1 / VALUE2
+			c.send(M.encode())
+			answer=c.recv(1024).decode()
+			print ('result is %8.8g' %division)
+			if division == float(answer):
+				c.send("OK\n".encode())
 				
+			else:
+				c.send("ERROR\n".encode())
+
+		elif Y == "fadd":
+			VALUE1 = random.uniform(1,150)
+			VALUE2 = random.uniform(1,200)
+			M = Y + " " + str(VALUE1) + " " + str(VALUE2)
+			faddition = VALUE1 + VALUE2
+			c.send(M.encode())
+			answer=c.recv(1024).decode()
+			print ('result is %8.8g' %faddition)
+			if faddition == float(answer):
+				c.send("OK\n".encode())
+				
+			else:
+				c.send("ERROR\n".encode())
+
+		elif Y == "fsub":
+			VALUE1 = random.uniform(1,150)
+			VALUE2 = random.uniform(1,95)
+			M = Y + " " + str(VALUE1) + " " + str(VALUE2)
+			fsubtraction = VALUE1 - VALUE2
+			c.send(M.encode())
+			answer=c.recv(1024).decode()
+			print ('result is %8.8g' %fsubtraction)
+			if fsubtraction == float(answer):
+				c.send("OK\n".encode())
+				
+			else:
+				c.send("ERROR\n".encode())
+
+		elif Y == "fmul":
+			VALUE1 = random.uniform(1,150)
+			VALUE2 = random.uniform(1,200)
+			M = Y + " " + str(VALUE1) + " " + str(VALUE2)
+			fmultiplication = VALUE1 * VALUE2
+			c.send(M.encode())
+			answer=c.recv(1024).decode()
+			print ('result is %8.8g' %fmultiplication)
+			if fmultiplication == float(answer):
+				c.send("OK\n".encode())
+				
+			else:
+				c.send("ERROR\n".encode())
+
+		elif Y == "fdiv":
+			VALUE1 = random.uniform(1,150)
+			VALUE2 = random.uniform(1,200)
+			M = Y + " " + str(VALUE1) + " " + str(VALUE2)
+			fdivision = VALUE1 / VALUE2
+			c.send(M.encode())
+			answer=c.recv(1024).decode()
+			print ('result is %8.8g' %fdivision)
+			if fdivision == float(answer):
+				c.send("OK\n".encode())
+
 		else:
 				c.send("ERROR\n".encode())
                       print (" INCORRECT INPUT ")
