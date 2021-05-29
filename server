@@ -44,7 +44,7 @@ while True:
 
 		elif Y == "sub":
 			VALUE1 = random.randint(1,150)
-			VALUE2 = random.randint(1,200)
+			VALUE2 = random.randint(1,95)
 			M = Y + " " + str(VALUE1) + " " + str(VALUE2)
 			subtraction = VALUE1 - VALUE2
 			c.send(M.encode())
