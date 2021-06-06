@@ -29,8 +29,8 @@ while True:
 	while True:
 		Y= random.choice(T)
 		if Y == "add":
-			VALUE1 = random.randint(1,150)
-			VALUE2 = random.randint(1,200)
+			VALUE1 = 150
+			VALUE2 = 200
 			M = Y + " " + str(VALUE1) + " " + str(VALUE2)
 			addition = VALUE1 + VALUE2
 			c.send(M.encode())
@@ -43,8 +43,8 @@ while True:
 				c.send("ERROR\n".encode())
 
 		elif Y == "sub":
-			VALUE1 = random.randint(1,150)
-			VALUE2 = random.randint(1,95)
+			VALUE1 = 150
+			VALUE2 = 95
 			M = Y + " " + str(VALUE1) + " " + str(VALUE2)
 			subtraction = VALUE1 - VALUE2
 			c.send(M.encode())
@@ -57,8 +57,8 @@ while True:
 				c.send("ERROR\n".encode())
 
 		elif Y == "mul":
-			VALUE1 = random.randint(1,150)
-			VALUE2 = random.randint(1,200)
+			VALUE1 = 150
+			VALUE2 = 200
 			M = Y + " " + str(VALUE1) + " " + str(VALUE2)
 			multiplication = VALUE1 * VALUE2
 			c.send(M.encode())
@@ -71,8 +71,8 @@ while True:
 				c.send("ERROR\n".encode())
 
 		elif Y == "div":
-			VALUE1 = random.randint(1,150)
-			VALUE2 = random.randint(1,200)
+			VALUE1 = 150
+			VALUE2 = 200
 			M = Y + " " + str(VALUE1) + " " + str(VALUE2)
 			division = VALUE1 / VALUE2
 			c.send(M.encode())
@@ -81,8 +81,8 @@ while True:
 			if division == float(answer):
 				c.send("OK\n".encode())
 		elif Y == "div":
-			VALUE1 = random.randint(1,100)
-			VALUE2 = random.randint(1,150)
+			VALUE1 = 150
+			VALUE2 = 200
 			M = Y + " " + str(VALUE1) + " " + str(VALUE2)
 			division = VALUE1 / VALUE2
 			c.send(M.encode())
@@ -95,8 +95,8 @@ while True:
 				c.send("ERROR\n".encode())
 
 		elif Y == "fadd":
-			VALUE1 = random.uniform(1,150)
-			VALUE2 = random.uniform(1,200)
+			VALUE1 = 150
+			VALUE2 = 200
 			M = Y + " " + str(VALUE1) + " " + str(VALUE2)
 			faddition = VALUE1 + VALUE2
 			c.send(M.encode())
@@ -109,8 +109,8 @@ while True:
 				c.send("ERROR\n".encode())
 
 		elif Y == "fsub":
-			VALUE1 = random.uniform(1,150)
-			VALUE2 = random.uniform(1,95)
+			VALUE1 = 150
+			VALUE2 = 95
 			M = Y + " " + str(VALUE1) + " " + str(VALUE2)
 			fsubtraction = VALUE1 - VALUE2
 			c.send(M.encode())
@@ -123,8 +123,8 @@ while True:
 				c.send("ERROR\n".encode())
 
 		elif Y == "fmul":
-			VALUE1 = random.uniform(1,150)
-			VALUE2 = random.uniform(1,200)
+			VALUE1 = 150
+			VALUE2 = 200
 			M = Y + " " + str(VALUE1) + " " + str(VALUE2)
 			fmultiplication = VALUE1 * VALUE2
 			c.send(M.encode())
@@ -137,8 +137,8 @@ while True:
 				c.send("ERROR\n".encode())
 
 		elif Y == "fdiv":
-			VALUE1 = random.uniform(1,150)
-			VALUE2 = random.uniform(1,200)
+			VALUE1 = 150
+			VALUE2 = 200
 			M = Y + " " + str(VALUE1) + " " + str(VALUE2)
 			fdivision = VALUE1 / VALUE2
 			c.send(M.encode())
