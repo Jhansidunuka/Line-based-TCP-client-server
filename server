@@ -147,8 +147,9 @@ while True:
 			if fdivision == float(answer):
 				c.send("OK\n".encode())
 
-		else:
+		        else:
 				c.send("ERROR\n".encode())
+		else:
                       print (" INCORRECT INPUT ")
 		break
 
