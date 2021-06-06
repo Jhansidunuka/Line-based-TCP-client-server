@@ -71,8 +71,8 @@ while(True):
 			m1=str(fo)+"\n"
 			s.send(m1.encode())
 			print('result is %8.8g' %fo)
-      
-    		response = s.recv(1024).decode()
+      		
+		response = s.recv(1024).decode()
 		print (response)
 	break
 
