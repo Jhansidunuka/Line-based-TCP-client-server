@@ -146,8 +146,7 @@ while True:
 			print ('result is %8.8g' %fdivision)
 			if fdivision == float(answer):
 				c.send("OK\n".encode())
-
-		        else:
+			else:
 				c.send("ERROR\n".encode())
 		else:
                       print (" INCORRECT INPUT ")
