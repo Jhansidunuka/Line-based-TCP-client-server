@@ -1,1 +1,156 @@
+#!/usr/bin/python3
 
+import socket		 	            
+import sys
+import random
+
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+from_user  = sys.argv[1]
+split      = from_user.split(':')	  		    
+host       = str(split[0])                     
+port       = int(split[1])
+
+s.bind((host, port)) 
+s.listen(1)
+
+print("Server is active")
+
+T = ["add", "sub", "mul", "div", "fadd", "fsub", "fdiv", "fmul"]
+
+while True:
+	c, addr = s.accept() 		    
+	print("Connected to :",from_user)
+	c.send("TEXT TCP 1.0\n".encode())
+	return_msg = c.recv(1024).decode()
+	print(return_msg)
+
+
+	while True:
+		Y= random.choice(T)
+		if Y == "add":
+			VALUE1 = 150
+			VALUE2 = 50
+			M = Y + " " + str(VALUE1) + " " + str(VALUE2)
+			addition = VALUE1 + VALUE2
+			c.send(M.encode())
+			answer=c.recv(1024).decode()
+			print ("result is", addition)
+			if addition == int(answer):
+				c.send("OK\n".encode())
+				
+			else:
+				c.send("ERROR\n".encode())
+
+		elif Y == "sub":
+			VALUE1 = 150
+			VALUE2 = 50
+			M = Y + " " + str(VALUE1) + " " + str(VALUE2)
+			subtraction = VALUE1 - VALUE2
+			c.send(M.encode())
+			answer=c.recv(1024).decode()
+			print ("result is", subtraction)
+			if subtraction == int(answer):
+				c.send("OK\n".encode())
+				
+			else:
+				c.send("ERROR\n".encode())
+
+		elif Y == "mul":
+			VALUE1 = 5
+			VALUE2 = 10
+			M = Y + " " + str(VALUE1) + " " + str(VALUE2)
+			multiplication = VALUE1 * VALUE2
+			c.send(M.encode())
+			answer=c.recv(1024).decode()
+			print ("result is", multiplication)
+			if multiplication == int(answer):
+				c.send("OK\n".encode())
+				
+			else:
+				c.send("ERROR\n".encode())
+
+		elif Y == "div":
+			VALUE1 = 10
+			VALUE2 = 2
+			M = Y + " " + str(VALUE1) + " " + str(VALUE2)
+			division = VALUE1 / VALUE2
+			c.send(M.encode())
+			answer=c.recv(1024).decode()
+			print ('result is %8.8g' %division)
+			if division == int(answer):
+				c.send("OK\n".encode())
+		elif Y == "div":
+			VALUE1 = random.randint(1,100)
+			VALUE2 = random.randint(1,150)
+			M = Y + " " + str(VALUE1) + " " + str(VALUE2)
+			division = VALUE1 / VALUE2
+			c.send(M.encode())
+			answer=c.recv(1024).decode()
+			print ('result is %8.8g' %division)
+			if division == float(answer):
+				c.send("OK\n".encode())
+				
+			else:
+				c.send("ERROR\n".encode())
+
+		elif Y == "fadd":
+			VALUE1 = random.uniform(1,150)
+			VALUE2 = random.uniform(1,200)
+			M = Y + " " + str(VALUE1) + " " + str(VALUE2)
+			faddition = VALUE1 + VALUE2
+			c.send(M.encode())
+			answer=c.recv(1024).decode()
+			print ('result is %8.8g' %faddition)
+			if faddition == float(answer):
+				c.send("OK\n".encode())
+				
+			else:
+				c.send("ERROR\n".encode())
+
+		elif Y == "fsub":
+			VALUE1 = random.uniform(1,150)
+			VALUE2 = random.uniform(1,95)
+			M = Y + " " + str(VALUE1) + " " + str(VALUE2)
+			fsubtraction = VALUE1 - VALUE2
+			c.send(M.encode())
+			answer=c.recv(1024).decode()
+			print ('result is %8.8g' %fsubtraction)
+			if fsubtraction == float(answer):
+				c.send("OK\n".encode())
+				
+			else:
+				c.send("ERROR\n".encode())
+
+		elif Y == "fmul":
+			VALUE1 = random.uniform(1,150)
+			VALUE2 = random.uniform(1,200)
+			M = Y + " " + str(VALUE1) + " " + str(VALUE2)
+			fmultiplication = VALUE1 * VALUE2
+			c.send(M.encode())
+			answer=c.recv(1024).decode()
+			print ('result is %8.8g' %fmultiplication)
+			if fmultiplication == float(answer):
+				c.send("OK\n".encode())
+				
+			else:
+				c.send("ERROR\n".encode())
+
+		elif Y == "fdiv":
+			VALUE1 = random.uniform(1,150)
+			VALUE2 = random.uniform(1,200)
+			M = Y + " " + str(VALUE1) + " " + str(VALUE2)
+			fdivision = VALUE1 / VALUE2
+			c.send(M.encode())
+			answer=c.recv(1024).decode()
+			print ('result is %8.8g' %fdivision)
+			if fdivision == float(answer):
+				c.send("OK\n".encode())
+			else:
+				c.send("ERROR\n".encode())
+		else:
+                      print (" INCORRECT INPUT ")
+		break
+
+
+c.close()
